@@ -4,7 +4,7 @@ export const listInventaire = (DATEINV, DESINV,ETATINV) => async (dispatch, getS
     dispatch({ type: 'PLACE_LISTINVENTAIRE_REQUEST' });
     const currentUser = getState().loginUserReducer.currentUser;
     try {
-        const response = await axios.post('http://localhost:5000/api/inventaire/listInventaire', {currentUser, DATEINV, DESINV,ETATINV });
+        const response = await axios.post('https://topinvapi2.onrender.com/api/inventaire/listInventaire', {currentUser, DATEINV, DESINV,ETATINV });
         console.log(response);
         dispatch({ type: 'PLACE_LISTINVENTAIRE_SUCCESS' });
     } catch (error) {
@@ -20,7 +20,7 @@ export const getUserOrders = () => async (dispatch, getState) => {
     dispatch({ type: 'GET_USER_ORDERS_REQUEST' });
 
     try {
-        const response = await axios.post('http://localhost:5000/api/orders/getuserorders', { currentUser });
+        const response = await axios.post('https://topinvapi2.onrender.com/api/orders/getuserorders', { currentUser });
         dispatch({ type: 'GET_USER_ORDERS_SUCCESS', payload: response.data });
     } catch (error) {
         dispatch({ 
