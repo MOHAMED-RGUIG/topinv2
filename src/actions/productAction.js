@@ -6,7 +6,7 @@ export const getAllProducts = () => async dispatch => {
     dispatch({ type: 'GET_PRODUCTS_REQUEST' });
 
     try {
-        const response = await axios.get('http://localhost:5000/api/products/getallproducts'); // Update with your CSV file path
+        const response = await axios.get('https://topinvapi2.onrender.com/api/products/getallproducts'); // Update with your CSV file path
        
         dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: response.data });
     } catch (error) {
@@ -21,7 +21,7 @@ export const updateProduct = (REFINV_0, ETATINV) => async (dispatch) => {
   
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/products/updateproducts/${REFINV_0}`,
+        `https://topinvapi2.onrender.com/api/products/updateproducts/${REFINV_0}`,
         { ETATINV } // Envoyer ETATINV dans le corps
       );
   
