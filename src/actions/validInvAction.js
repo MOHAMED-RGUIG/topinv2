@@ -5,7 +5,7 @@ export const getFilteredValidInv = (itmref) => async (dispatch) => {
     dispatch({ type: 'GET_VALIDINV_REQUEST' });
 
     try {
-        const response = await axios.get(`http://localhost:5000/api/validinv/getAllValidInv`, {
+        const response = await axios.get(`https://topinvapi2.onrender.com/api/validinv/getAllValidInv`, {
             params: { itmref }, // Envoyer le filtre en tant que paramètre
         });
         dispatch({ type: 'GET_VALIDINV_SUCCESS', payload: response.data });
@@ -20,7 +20,7 @@ export const getFilteredValidInvByCode = (eancod) => async (dispatch) => {
     dispatch({ type: 'GET_VALIDINVCODE_REQUEST' });
 
     try {
-        const response = await axios.get(`https://topinvapi.onrender.com/api/validinv/getAllValidInvByCode`, {
+        const response = await axios.get(`https://topinvapi2.onrender.com/api/validinv/getAllValidInvByCode`, {
             params: { eancod }, // Envoyer le filtre en tant que paramètre
         });
         dispatch({ type: 'GET_VALIDINVCODE_SUCCESS', payload: response.data });
@@ -36,7 +36,7 @@ export const getInv = () => async (dispatch) => {
     dispatch({ type: 'GET_GETINV_REQUEST' });
 
     try {
-        const response = await axios.get(`https://topinvapi.onrender.com/api/validinv/getInv`, {
+        const response = await axios.get(`https://topinvapi2.onrender.com/api/validinv/getInv`, {
            
         });
         dispatch({ type: 'GET_GETINV_SUCCESS', payload: response.data });
@@ -67,7 +67,7 @@ export const validInvInsert = (payload) => async (dispatch, getState) => {
     const currentUser = getState().loginUserReducer.currentUser;
 
     try {
-        const response = await axios.post('https://topinvapi.onrender.com/api/validinv/validInvInsert', {
+        const response = await axios.post('https://topinvapi2.onrender.com/api/validinv/validInvInsert', {
             currentUser,
             ...payload // Inclure REFINV_0, ITMREF_0 et les lignes du tableau
         });
