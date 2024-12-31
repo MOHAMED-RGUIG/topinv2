@@ -318,7 +318,7 @@ readOnly={EANCOD_0.trim() !== ''}
   <label>Emplacement</label>
   <input
           type="text"
-          value={item.STOFCY_0}
+          value={item.LOC_0}
           onChange={(e) => {
             const updatedData = localData.map((row) =>
               row.STOCOU_0 === item.STOCOU_0 ? { ...row, STOFCY_0: e.target.value } : row
