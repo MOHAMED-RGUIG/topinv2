@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../actions/userActions';
@@ -5,7 +6,7 @@ import Loading from '../components/Loading';
 import Error from '../components/Error';
 
 export default function Loginscreen() {
-  const [email, setemail] = useState('');
+  const [username, setusername] = useState('');
   const [password, setpassword] = useState('');
   const loginstate = useSelector(state => state.loginUserReducer);
   const { loading, error } = loginstate;
@@ -25,12 +26,12 @@ export default function Loginscreen() {
 }, []);
 
   function login() {
-    const user = { email, password };
+    const user = { username, password };
     console.log('Login attempt:', user); // Log the login attempt
     dispatch(loginUser(user));
   }
 
-   return (
+  return (
     <div class="login-page">
 
 
